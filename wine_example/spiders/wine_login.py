@@ -41,7 +41,8 @@ class AuthenticatedDrunkSpider(Spider):
             i_name = ''.join(hidden.xpath('@name').extract())
             i_value = ''.join(hidden.xpath('@value').extract())
             post_fields[i_name] = i_value
-        email_name = ''.join(aspnet_form.css('input[type=text][name$=Email]').xpath('@name').extract())
+        email_name = ''.join(aspnet_form.css(
+            'input[type=text][name$=Email]').xpath('@name').extract())
         post_fields[email_name] = username
         password_name = ''.join(aspnet_form.css('input[type=password]').xpath('@name').extract())
         post_fields[password_name] = password

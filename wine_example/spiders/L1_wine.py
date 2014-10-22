@@ -40,7 +40,8 @@ class DrunkSpider(Spider):
                 wine_product['name'] = wine_name[0]
 
             # get price
-            price_list = product.css('[itemprop="price"]').xpath('text()').extract()
+            price_list = product.css('[itemtype="http://schema.org/Offer"] [itemprop="price"]')\
+                .xpath('text()').extract()
             if price_list:
                 current_price = price_list[0]
                 wine_product['price'] = current_price

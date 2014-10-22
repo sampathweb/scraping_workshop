@@ -1,20 +1,20 @@
 Scrapy Workshop Demo Spiders
 ============================
 
-This repo contains Scrapy spiders demo-ed in Radius Intelligence's workshop "Data Collection with Scrapy: Build &amp; Manage Production Web Scraping Pipelines".
+This repo contains Scrapy spiders demo-ed in Radius Intelligence's workshop "Data Collection with Scrapy: Build & Manage Production Web Scraping Pipelines".
 
-####[Presentation materials available here](https://docs.google.com/a/radius.com/presentation/d/1QUbdzaI7fRwY1lspgCPnZ5as-NAZzBjYEsuyKrOIBlM/edit#slide=id.g26c11f2d3_02)
+####[Presentation materials available here](https://docs.google.com/a/radius.com/presentation/d/1QUbdzaI7fRwY1lspgCPnZ5as-NAZzBjYEsuyKrOIBlM/view)
 
 ####[Meetup Description](http://www.meetup.com/Women-in-Data-Science-San-Francisco/events/210430882/)
 
-The spiders collect data about the wine products from www.wine.com and are broken out into levels that build new concepts on top of each other.
+The spiders collect data about the wine products from a wine website and are broken out into levels that build new concepts on top of each other.
 
 * __L0 (wine_example/spiders/L0_barespider.py)__
-    * set up basic spider to fetch from wine.com url
+    * set up basic spider to fetch from wine&#x2E;com url
 
 
 * __L1 (wine_example/spiders/L1_wine.py)__
-    * Create a spider that returns an item type named 'Wine' containing the fields: 1) the specific product page link, 2) product name, and 3) the current sell price. Only do this for the first page of 25 wine products at www.wine.com/v6/wineshop
+    * Create a spider that returns an item type named 'Wine' containing the fields: 1) the specific product page link, 2) product name, and 3) the current sell price. Only do this for the first page of 25 wine products at the wine website
 
 
 * __L2 (wine_example/spiders/L2_wine_meta.py)__
@@ -74,4 +74,3 @@ Additional Resources
     * https://docs.python.org/2/library/re.html
 * Beautiful Soup
     * http://www.crummy.com/software/BeautifulSoup/bs4/doc
-

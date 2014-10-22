@@ -7,7 +7,18 @@ This repo contains Scrapy spiders demo-ed in Radius Intelligence's workshop "Dat
 
 ####[Meetup Description](http://www.meetup.com/Women-in-Data-Science-San-Francisco/events/210430882/)
 
-The spiders collect data about the wine products from a wine website and are broken out into levels that build new concepts on top of each other.
+The spiders collect data about the wine products from a wine website and are broken out into levels that build new concepts on top of each other. To run these spiders enter into your command line:
+
+```sh
+cd scraping_workshop/wine_example/spiders
+scrapy runspider wine_example/spiders/L3_wine_pagination.py.py
+```
+
+or to write to a json file:
+```sh
+scrapy runspider wine_example/spiders/L3_wine_pagination.py.py -o wine_data.json
+```
+
 
 * __L0 (wine_example/spiders/L0_barespider.py)__
     * set up basic spider to fetch from wine&#x2E;com url

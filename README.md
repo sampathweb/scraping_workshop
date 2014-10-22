@@ -18,22 +18,25 @@ or to write to a json file:
 ```sh
 scrapy runspider wine_example/spiders/L3_wine_pagination.py.py -o wine_data.json
 ```
-
+More instructions related to these exercises in the presentation (section Demo Part 1)
 
 * __L0 (wine_example/spiders/L0_barespider.py)__
     * set up basic spider to fetch from wine&#x2E;com url
+    * Shows how to create an Item with a field that stores all the raw html
 
 
 * __L1 (wine_example/spiders/L1_wine.py)__
-    * Create a spider that returns an item type named 'Wine' containing the fields: 1) the specific product page link, 2) product name, and 3) the current sell price. Only do this for the first page of 25 wine products at the wine website
+    * Create a spider that returns an item type named 'WineItem' containing the following fields: 1) the specific product page link, 2) product name, and 3) the current sell price. Only do this for the first page of products listed (contained the first 25 wine products)
 
 
 * __L2 (wine_example/spiders/L2_wine_meta.py)__
-    * Add to the Wine item the following fields: 1) wine type and 2) region.
+    * Add to the Wine item the following fields: 1) wine type and 2) region. This information is only available in the single product-specific links. This will require another callback with the first callback parsing for the link to the page for the specific product and using meta to pass information between callbacks.
+    * For the wine type, you'll use the icon of the wine glass that is yellow for white wine, red for red wine. If you right click on it and select 'Inspect Element', you'll see that the attributes indicate the type of wine.
+    * For the region, note the helpful JSON object towards the top of the html that starts with 'var utag_data' (right click on the page and select 'View Source'). This is where you get the region from and will require regex-ing out the JSON and json loading it into a dictionary and referencing the region key.
 
 
 * __L3 (wine_example/spiders/L3_wine_pagination.py)__
-    * Teach your spider to crawl through all product pages to gather all 5000+ products
+    * Teach your spider to crawl through all product pages to gather all 5000+ products. There are several ways to do this, but one way is the scrape the href for the 'Next' page hyperlink towards the bottom of the page and create a new Request object for that url.
 
 
 * __Wine_login.py (wine_example/spiders/wine_login.py)__
@@ -43,7 +46,7 @@ scrapy runspider wine_example/spiders/L3_wine_pagination.py.py -o wine_data.json
 
 #####Take-Home Challenge:
 * __L4 (wine_example/spiders/L4_wine_reviews.py)__
-    * Complete this part on your own. Teach your spider to crawl one more page level deep to scrape all ratings and reviews for each product. Good luck and have fun!
+    * Complete this part on your own. Teach your spider to crawl one more page level deep to scrape all ratings and reviews for each product. You will need to scrape for the href in the hyperlink 'View all reviews' and create another Request object specifying another callback. Good luck and have fun!
 
 
 

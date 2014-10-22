@@ -9,13 +9,14 @@ class DrunkSpider(Spider):
     name = 'bare_bones'
     # start_urls = ['http://www.wine.com/v6/wineshop/']
 
-    # start_requests() is set as default, no need to include. Could just use start_urls list and delete start_requests()
+    # start_requests() is set as default, no need to include. Could just use start_urls list (commented out above)
+    # and delete start_requests()
     def start_requests(self):
         """
         :rtype: scrapy.http.Request
         """
         for url in ['http://www.wine.com/v6/wineshop/']:
-            # parse() callback is run by default, no need to specify
+            # parse() callback is set by default, no need to specify
             yield Request(url, callback=self.parse)
 
     def parse(self, response):
@@ -24,6 +25,7 @@ class DrunkSpider(Spider):
         """
         self.log('YAY!!! successfully fetched URL: %s' % response.url)
 
+        # uncomment out this section and run it!
         # wine_product = WineItem()
         #
         # html_selector_list = response.css('html')

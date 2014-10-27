@@ -26,17 +26,17 @@ More instructions related to these exercises in the presentation (section Demo P
 
 
 * __L1 (wine_example/spiders/L1_wine.py)__
-    * Create a spider that returns an item type named 'WineItem' containing the following fields: 1) the specific product page link, 2) product name, and 3) the current sell price. Only do this for the first page of products listed (contained the first 25 wine products)
+    * Create a spider that returns an item type named 'WineItem' containing the following fields: 1) the specific product page link, 2) product name, and 3) the current sell price. Only do this for the first page of products listed (containing just the first 25 wine products)
 
 
 * __L2 (wine_example/spiders/L2_wine_meta.py)__
-    * Add to the Wine item the following fields: 1) wine type and 2) region. This information is only available in the single product-specific links. This will require another callback with the first callback parsing for the link to the page for the specific product and using meta to pass information between callbacks.
+    * Add to the Wine item the following fields: 1) wine type and 2) region. The region is only available in the single product-specific links. This will require another callback with the first callback parsing for the link to the page for the specific product and using meta to pass information between callbacks.
     * For the wine type, you'll use the icon of the wine glass that is yellow for white wine, red for red wine. If you right click on it and select 'Inspect Element', you'll see that the attributes indicate the type of wine.
     * For the region, note the helpful JSON object towards the top of the html that starts with 'var utag_data' (right click on the page and select 'View Source'). This is where you get the region from and will require regex-ing out the JSON and json loading it into a dictionary and referencing the region key.
 
 
 * __L3 (wine_example/spiders/L3_wine_pagination.py)__
-    * Teach your spider to crawl through all product pages to gather all 5000+ products. There are several ways to do this, but one way is the scrape the href for the 'Next' page hyperlink towards the bottom of the page and create a new Request object for that url.
+    * Teach your spider to crawl through all product pages to gather all 5000+ products. There are several ways to do this, but one way is the check if the href for the 'Next' page hyperlink towards the bottom of the page exists and create a new Request object for that url if it does.
 
 
 * __Wine_login.py (wine_example/spiders/wine_login.py)__
